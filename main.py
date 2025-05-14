@@ -19,8 +19,8 @@ def main() -> None:
         for spell in race_data["skills"]:
             skill, _ = Skill.objects.get_or_create(
                 name=spell["name"],
-                bonus=spell["bonus"],
                 race=race,
+                bonus=spell["bonus"]
             )
 
         guild = None
