@@ -8,8 +8,7 @@ def main() -> None:
     with open("players.json", "r") as file:
         data_players = json.load(file)
 
-
-    for nickname, player_data  in data_players.items():
+    for nickname, player_data in data_players.items():
 
         race_data = player_data["race"]
         race, _ = Race.objects.get_or_create(
@@ -19,11 +18,10 @@ def main() -> None:
 
         for spell in race_data["skills"]:
             skill, _ = Skill.objects.get_or_create(
-            name=spell["name"],
-            bonus=spell["bonus"],
-            race=race,
-        )
-
+                name=spell["name"],
+                bonus=spell["bonus"],
+                race=race,
+            )
 
         guild = None
         guild_data = player_data["guild"]
